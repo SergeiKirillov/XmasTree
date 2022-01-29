@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FirTree"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="500" Width="500" AllowsTransparency="True" Background="Transparent" WindowStyle="None">
     <Grid>
-        
+        <Image Name="img1" Stretch="Fill" Source="fir_tree_png3694.png"></Image>
     </Grid>
 </Window>
