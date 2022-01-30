@@ -3,11 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:tb="http://www.hardcodet.net/taskbar"
         xmlns:local="clr-namespace:FirTree"
         mc:Ignorable="d"
         Title="MainWindow" Height="400" Width="180" AllowsTransparency="True" Background="Transparent" WindowStyle="None" Activated="Window_Activated" ShowInTaskbar="False">
     <Grid>
         <!--<Image Name="img1" Stretch="Fill" Source="fir_tree_png3694.png"></Image>-->
+        
+
         <Calendar Name="MyCalendar"
             Height="170" 
             HorizontalAlignment="Left" 
@@ -28,5 +31,13 @@
                  x:Name="SelectedDataTextBox">
 
         </TextBox>
+
+        <tb:TaskbarIcon x:Name="myNotifyIcon" 
+                        Visibility="Visible"
+                        ToolTipText="Меню управления" 
+                        IconSource="icon.ico" 
+                       
+                        />
+
     </Grid>
 </Window>

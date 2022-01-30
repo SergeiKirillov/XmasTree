@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace FirTree
 {
     /// <summary>
@@ -38,10 +39,14 @@ namespace FirTree
 
         private void Window_Activated(object sender, EventArgs e)
         {
+            
+
             addSelectedDates();
             ShoveToBackground();
 
         }
+
+       
 
         private IntPtr Handle
         {
