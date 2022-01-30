@@ -5,8 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FirTree"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="500" AllowsTransparency="True" Background="Transparent" WindowStyle="None" Activated="Window_Activated" ShowInTaskbar="False">
+        Title="MainWindow" Height="240" Width="240" AllowsTransparency="True" Background="Transparent" WindowStyle="None" Activated="Window_Activated" ShowInTaskbar="False">
     <Grid>
-        <Image Name="img1" Stretch="Fill" Source="fir_tree_png3694.png"></Image>
+        <!--<Image Name="img1" Stretch="Fill" Source="fir_tree_png3694.png"></Image>-->
+        <Calendar Name="MyCalendar"
+            Height="170" 
+            HorizontalAlignment="Left" 
+            Margin="58,32,0,0" 
+            VerticalAlignment="Top" 
+            Width="180"
+            SelectionMode="MultipleRange"
+            Opacity="1"
+            SelectedDatesChanged="MyCalendar_SelectedDatesChanged" MouseDoubleClick="MyCalendar_MouseDoubleClick"   
+            
+                  >
+        </Calendar>
+
+        <TextBox Width="180" Height="30"
+                 VerticalAlignment="Bottom"
+                 HorizontalAlignment="Right"
+                 Margin="58,0,0,10"
+                 x:Name="SelectedDataTextBox">
+
+        </TextBox>
     </Grid>
 </Window>

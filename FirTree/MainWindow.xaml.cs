@@ -38,7 +38,9 @@ namespace FirTree
 
         private void Window_Activated(object sender, EventArgs e)
         {
+            addSelectedDates();
             ShoveToBackground();
+
         }
 
         private IntPtr Handle
@@ -52,6 +54,23 @@ namespace FirTree
         private void ShoveToBackground()
         {
             SetWindowPos((int)this.Handle, HWND_BOTTOM, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE | SWP_SHOWWINDOW);
+        }
+
+
+        private void addSelectedDates()
+        {
+            MyCalendar.SelectedDates.Add(new DateTime(2021, 1, 31));
+            MyCalendar.SelectedDates.Add(new DateTime(2021, 2, 3));
+        }
+
+        private void MyCalendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
+        {
+            SelectedDataTextBox.Text = MyCalendar.SelectedDate.ToString();
+        }
+
+        private void MyCalendar_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            SelectedDataTextBox.Text = "Add";
         }
     }
 }
