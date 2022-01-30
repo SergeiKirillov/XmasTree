@@ -65,12 +65,19 @@ namespace FirTree
 
         private void MyCalendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
         {
-            SelectedDataTextBox.Text = MyCalendar.SelectedDate.ToString();
+            //SelectedDataTextBox.Text = MyCalendar.SelectedDate.ToString();
+            //ViewMessage vmDay = new ViewMessage();
+            //vmDay.Show();
         }
 
         private void MyCalendar_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            SelectedDataTextBox.Text = "Add";
+            //SelectedDataTextBox.Text = "Add";
+            //DateTime selectDay = Convert.ToDateTime(MyCalendar.SelectedDate.ToString());
+            DateTime selectDay = (DateTime)MyCalendar.SelectedDate;
+            AddMessageInDatabase addMess = new AddMessageInDatabase(selectDay);
+            addMess.Show();
         }
+
     }
 }
