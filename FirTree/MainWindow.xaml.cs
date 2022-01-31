@@ -73,6 +73,7 @@ namespace FirTree
             //SelectedDataTextBox.Text = MyCalendar.SelectedDate.ToString();
             //ViewMessage vmDay = new ViewMessage();
             //vmDay.Show();
+            
         }
 
         private void MyCalendar_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -84,5 +85,65 @@ namespace FirTree
             addMess.Show();
         }
 
+        #region Вывод всплывающего сообщения
+        private void ShowCustomBallon()
+        {
+            string title = "WPF NotifyIcon";
+            string text = "This is a standard ballon";
+
+            myNotifyIcon.ShowBalloonTip(title, text, myNotifyIcon.Icon);
+            myNotifyIcon.HideBalloonTip();
+
+
+        }
+
+
+        #endregion
+
+        private void AddTask_Click(object sender, RoutedEventArgs e)
+        {
+            AddMessageInDatabase addMessage = new AddMessageInDatabase((DateTime)MyCalendar.SelectedDate);
+            addMessage.Show();
+
+        }
+
+        private void SettingTask_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        
+        private void ExitTask_Click(object sender, RoutedEventArgs e)
+        {
+            myNotifyIcon.Dispose();
+            System.Windows.Application.Current.Shutdown();
+
+
+        }
+
+        private void btnTrayPopup_Click(object sender, RoutedEventArgs e)
+        {
+            ShowCustomBallon();
+        }
     }
+
+    #region Нажатие на TrayIcon 
+
+
+    public class ShowMessageCommand : ICommand
+    {
+        public event EventHandler CanExecuteChanged;
+
+        public bool CanExecute(object parameter)
+        {
+            return true;
+        }
+
+        public void Execute(object parameter)
+        {
+          //  MessageBox.Show(parameter.ToString());
+        }
+    }
+
+    #endregion
 }

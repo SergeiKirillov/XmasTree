@@ -105,8 +105,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -124,10 +125,14 @@
     <Resource Include="icon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\tray.ico" />
+    <None Include="task.ico.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="task.ico.ico" />
+    <Resource Include="Images\Add.png" />
+    <Resource Include="Images\Close.png" />
+    <Resource Include="Images\Info.png" />
+    <Resource Include="Images\Preferences.png" />
+    <Resource Include="Images\Remove.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
