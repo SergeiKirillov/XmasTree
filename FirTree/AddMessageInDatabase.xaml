@@ -30,7 +30,16 @@
                     <Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate>
-                                <TextBox Text="{Binding Path=SelectedDate, RelativeSource={RelativeSource AncestorType=DatePicker}, StringFormat={}{0:dd/MM/yyyy hh:mm:ss}}"/>
+                                <!--:
+                                 stackoverflow.com/questions/56431013/datepicker-is-changing-from-dd-mm-yyyy-to-mm-dd-yyyy-after-input 
+                                 https://stackoverflow.com/questions/3636310/custom-wpf-datepickertextbox-template
+                                 https://stackoverflow.com/questions/42437732/change-appearance-of-wpf-datepickers-textbox
+                                
+                                 https://docs.microsoft.com/en-us/dotnet/desktop/wpf/controls/datepicker-styles-and-templates?view=netframeworkdesktop-4.8
+                                
+                                
+                                -->
+                                <TextBox Text="{Binding Path=SelectedDate, RelativeSource={RelativeSource AncestorType=DatePicker}, StringFormat={}{0:dd/MM/yyyy HH:mm}}"/>
                             </ControlTemplate>
                         </Setter.Value>
                     </Setter>
