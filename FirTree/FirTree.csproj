@@ -63,10 +63,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="EditMessageDatabase.xaml.cs">
+      <DependentUpon>EditMessageDatabase.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewMessage.xaml.cs">
       <DependentUpon>ViewMessage.xaml</DependentUpon>
     </Compile>
     <Page Include="AddMessageInDatabase.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditMessageDatabase.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -23,11 +23,14 @@ namespace FirTree
         public AddMessageInDatabase(DateTime SelectDate)
         {
             InitializeComponent();
-            lbl.Content = SelectDate.ToString();
+            lblDT.Content = SelectDate.ToString();
         }
 
-        
-            
-
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox comboBox = (ComboBox)sender;
+            ComboBoxItem selectedItem = (ComboBoxItem)comboBox.SelectedItem;
+            MessageBox.Show(selectedItem.Content.ToString());
+        }
     }
 }

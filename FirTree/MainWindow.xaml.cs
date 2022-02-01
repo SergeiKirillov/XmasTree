@@ -125,6 +125,12 @@ namespace FirTree
         {
             ShowCustomBallon();
         }
+
+        private void EditTask_Click(object sender, RoutedEventArgs e)
+        {
+            EditMessageDatabase editMessageDatabase = new EditMessageDatabase();
+            editMessageDatabase.Show();
+        }
     }
 
     #region Нажатие на TrayIcon 

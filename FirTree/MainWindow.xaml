@@ -56,11 +56,17 @@
                             <Image Width="16" Height="16" Source="/Images/Add.png" />
                         </MenuItem.Icon>
                     </MenuItem>
+                    <MenuItem Header="Корректировка задач" Name="EditTask" Click="EditTask_Click">
+                        <MenuItem.Icon>
+                            <Image Width="16" Height="16" Source="/Images/Remove.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
                     <MenuItem Header="Настройки" Name="SettingTask" Click="SettingTask_Click" >
                         <MenuItem.Icon>
                             <Image Height="16" Width="16" Source="/Images/Preferences.png"/>
                         </MenuItem.Icon>
                     </MenuItem>
+                    
                     <MenuItem Header="Выход" Name="ExitTask" Click="ExitTask_Click">
                         <MenuItem.Icon>
                             <Image Height="16"

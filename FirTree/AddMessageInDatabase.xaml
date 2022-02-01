@@ -5,8 +5,69 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FirTree"
         mc:Ignorable="d"
-        Title="AddMessageInDatabase" Height="450" Width="800">
+        Title="AddMessageInDatabase" Height="240" Width="800">
     <Grid>
-        <Label Name="lbl">Добавление нового события в выбранный день</Label>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="158*"></ColumnDefinition>
+            <ColumnDefinition Width="150*"></ColumnDefinition>
+            <ColumnDefinition Width="182*"></ColumnDefinition>
+            <ColumnDefinition Width="200*"></ColumnDefinition>
+            <ColumnDefinition Width="158*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="21" Height="38" Margin="110,14,110,13" Width="256" >Добаление новой задачи</Label>
+        <Label Name="lblDT" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" Width="130" Height="30" VerticalAlignment="Center" Margin="0,1" >Введите Дату/Время</Label>
+        
+        
+        <DatePicker Name="Picker" Grid.Row="1" Grid.Column="1"  >
+            <DatePicker.Resources>
+                <Style TargetType="DatePickerTextBox">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <TextBox Text="{Binding Path=SelectedDate, RelativeSource={RelativeSource AncestorType=DatePicker}, StringFormat={}{0:dd/MM/yyyy hh:mm:ss}}"/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </DatePicker.Resources>
+        </DatePicker>
+
+        <ComboBox Grid.Row="1" Grid.Column="2" Width="150" IsEditable="True" >
+            <TextBlock>Раз в год</TextBlock>
+            <TextBlock>Раз в месяц</TextBlock>
+            <TextBlock>Каждый день</TextBlock>
+            <TextBlock>Выборочно по дням</TextBlock>
+        </ComboBox>
+
+        <ComboBox Grid.Row="1" Grid.Column="3" Width="150" IsEditable="True">
+            <TextBlock>Гос. праздники</TextBlock>
+            <TextBlock>Религиозные</TextBlock>
+            <TextBlock>Дни рождения(Семья)</TextBlock>
+            <TextBlock>Дни рождения(Работа)</TextBlock>
+            <TextBlock>Задача(Семья)</TextBlock>
+            <TextBlock>Задача(Работа)</TextBlock>
+        </ComboBox>
+
+        <TextBox Name="txtZadacha" 
+                 Grid.Row="2" 
+                 Grid.Column="0" 
+                 Grid.ColumnSpan="5"
+                 MaxLength="250"
+                 TextWrapping="Wrap" 
+                 SpellCheck.IsEnabled="True" Language="ru-ru" 
+                 MaxLines="5"
+                 HorizontalContentAlignment="Left"
+                 VerticalContentAlignment="Top"
+                 FontSize="18"
+                 >
+            
+        </TextBox>
+
     </Grid>
 </Window>
