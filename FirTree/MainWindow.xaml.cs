@@ -34,7 +34,15 @@ namespace FirTree
 
         public MainWindow()
         {
+            
             InitializeComponent();
+
+
+
+            MyCalendar.DisplayDate = DateTime.Now;
+            MyCalendar.SelectedDate = DateTime.Now;
+
+
         }
 
         private void Window_Activated(object sender, EventArgs e)

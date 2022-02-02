@@ -14,11 +14,11 @@
             <RowDefinition Height="25"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="158*"></ColumnDefinition>
             <ColumnDefinition Width="150*"></ColumnDefinition>
-            <ColumnDefinition Width="182*"></ColumnDefinition>
-            <ColumnDefinition Width="200*"></ColumnDefinition>
             <ColumnDefinition Width="158*"></ColumnDefinition>
+            <ColumnDefinition Width="190*"></ColumnDefinition>
+            <ColumnDefinition Width="190*"></ColumnDefinition>
+            <ColumnDefinition Width="190*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Label Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="21" Height="38" Margin="110,14,110,13" Width="256" >Добаление новой задачи</Label>
         <Label Name="lblDT" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" Width="130" Height="30" VerticalAlignment="Center" Margin="0,1" >Введите Дату/Время</Label>
@@ -39,7 +39,9 @@
                                 
                                 
                                 -->
-                                <TextBox Text="{Binding Path=SelectedDate, RelativeSource={RelativeSource AncestorType=DatePicker}, StringFormat={}{0:dd/MM/yyyy HH:mm}}"/>
+
+                                
+                                <TextBox x:Name="txtDateTime" Text="{Binding Path=SelectedDate, RelativeSource={RelativeSource AncestorType=DatePicker}, StringFormat='dd-MMM-yyyy HH:mm'}"/>
                             </ControlTemplate>
                         </Setter.Value>
                     </Setter>
@@ -47,14 +49,19 @@
             </DatePicker.Resources>
         </DatePicker>
 
-        <ComboBox Grid.Row="1" Grid.Column="2" Width="150" IsEditable="True" >
+        <ComboBox Grid.Row="1" Grid.Column="2" Width="150" Height="25" IsEditable="True" >
             <TextBlock>Раз в год</TextBlock>
             <TextBlock>Раз в месяц</TextBlock>
             <TextBlock>Каждый день</TextBlock>
             <TextBlock>Выборочно по дням</TextBlock>
         </ComboBox>
 
-        <ComboBox Grid.Row="1" Grid.Column="3" Width="150" IsEditable="True">
+        <StackPanel Grid.Row="1" Grid.Column="3" Orientation="Horizontal">
+            <Label>Кол-во повторений</Label>
+            <TextBox Name="txtPovtor" Width="40" Height="25" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">1</TextBox>
+        </StackPanel>
+
+        <ComboBox Grid.Row="1" Grid.Column="4" Width="150" Height="25" IsEditable="True">
             <TextBlock>Гос. праздники</TextBlock>
             <TextBlock>Религиозные</TextBlock>
             <TextBlock>Дни рождения(Семья)</TextBlock>
@@ -73,10 +80,11 @@
                  MaxLines="5"
                  HorizontalContentAlignment="Left"
                  VerticalContentAlignment="Top"
-                 FontSize="18"
+                 FontSize="18" GotFocus="txtZadacha_GotFocus"
                  >
             
         </TextBox>
+        <Button Name="btnSaveInDB" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="5" Click="btnSaveInDB_Click">Сохранить</Button>
 
     </Grid>
 </Window>

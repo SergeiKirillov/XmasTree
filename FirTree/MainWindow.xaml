@@ -23,6 +23,7 @@
             Width="180"
             SelectionMode="MultipleRange"
             Opacity="1"
+            IsTodayHighlighted="True"
             SelectedDatesChanged="MyCalendar_SelectedDatesChanged" MouseDoubleClick="MyCalendar_MouseDoubleClick"   
             
                   >
