@@ -8,6 +8,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -63,10 +64,7 @@ namespace FirTree
             //MessageBox.Show(selectedItem.Content.ToString());
         }
 
-        private void btnSaveInDB_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Вы уверены что хотите сохранить эти данные");
-        }
+        
 
         private void txtZadacha_GotFocus(object sender, RoutedEventArgs e)
         {
@@ -74,5 +72,25 @@ namespace FirTree
         }
 
         // SQLite в WPF https://metanit.com/sharp/wpf/21.1.php
+
+        private void btnSaveInDB_Click(object sender, RoutedEventArgs e)
+        {
+
+            MessageBoxResult dr = MessageBox.Show("Вы уверены что хотите сохранить эти данные","Добавление данных", MessageBoxButton.YesNo,MessageBoxImage.Question);
+
+            if (dr == MessageBoxResult.Yes)
+            {
+                Task dbNewTask = new Task();
+
+                if (dbNewTask.SaveNewTask())
+                {
+                    MessageBox.Show("Данные записаны", "Добавление данных", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                }
+            }
+
+            
+
+        }
     }
 }
