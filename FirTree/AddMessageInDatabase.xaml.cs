@@ -81,7 +81,8 @@ namespace FirTree
             if (dr == MessageBoxResult.Yes)
             {
                 Task dbNewTask = new Task();
-
+                
+                string fff = Picker.
                 if (dbNewTask.SaveNewTask())
                 {
                     MessageBox.Show("Данные записаны", "Добавление данных", MessageBoxButton.OK, MessageBoxImage.Information);

@@ -69,12 +69,21 @@ class Task
 
                 SQLiteCommand command = new SQLiteCommand(sqlExpression, connection);
                 int number = command.ExecuteNonQuery();
-                Console.WriteLine($"Добавлено объектов: {number}");
+                //Console.WriteLine($"Добавлено объектов: {number}");
+
+                if (number>0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
 
             }
             
 
-            return true;
+            
 
 
         }
