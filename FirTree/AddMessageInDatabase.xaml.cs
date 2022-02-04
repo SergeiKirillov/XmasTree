@@ -54,7 +54,17 @@ namespace FirTree
         {
             InitializeComponent();
             //lblDT.Content = SelectDate.ToString();
-            Picker.Text= SelectDate.ToString();
+            //Picker.Text= SelectDate.ToString();
+            //MyCalendar.DisplayDate = DateTime.Now;
+            //MyCalendar.SelectedDate = DateTime.Now;
+
+            if (SelectDate!= new DateTime())
+            {
+                datePickerAdd.DisplayDate = SelectDate;
+                datePickerAdd.SelectedDate = SelectDate;
+            }
+
+            
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -81,17 +91,51 @@ namespace FirTree
             if (dr == MessageBoxResult.Yes)
             {
                 Task dbNewTask = new Task();
-                
-                string fff = Picker.
-                if (dbNewTask.SaveNewTask())
-                {
-                    MessageBox.Show("Данные записаны", "Добавление данных", MessageBoxButton.OK, MessageBoxImage.Information);
+                DateTime dtSelect= datePickerAdd.DisplayDate;
 
+
+
+                for (int i = 0; i < Int32.Parse(txtPovtor.Text); i++)
+                {
+                    switch (cmdSikl.Text)
+                    {
+                        case "Каждый день":
+                            dbNewTask.dtTask = dtSelect.AddDays(i).ToString(); 
+                            break;
+                        case "Раз в год":
+                            dbNewTask.dtTask = dtSelect.AddYears(i).ToString();
+                            break;
+                        case "Раз в месяц":
+                            dbNewTask.dtTask = dtSelect.AddMonths(i).ToString();
+                            break;
+                        default:
+                            break;
+                    }
+
+                    dbNewTask.strTask = txtZadacha.Text;
+                    dbNewTask.blStatus = false;
+                    dbNewTask.Categoria = cmbCategoria.Text;
+                    if (dbNewTask.SaveNewTask())
+                    {
+                        MessageBox.Show("Данные записаны", "Добавление данных", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Данные НЕ записаны", "Добавление данных", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
                 }
+               
+                
+
+
+                
             }
 
             
 
         }
+
+       
     }
 }

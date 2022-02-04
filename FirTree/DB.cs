@@ -13,8 +13,8 @@ class Task
     private string datetimetTask;
     private string stringTask;
     private bool boolStatus;
-    private int intCategoria;
-    private int intRepeat;
+    private string strCategoria;
+    
 
     public int Id{ get; set; }
 
@@ -37,18 +37,13 @@ class Task
         set { boolStatus = value; }
     }
 
-    public int Categoria
+    public string Categoria
     {
-        get { return intCategoria; }
-        set { intCategoria = value; }
+        get { return strCategoria; }
+        set { strCategoria = value; }
     }
 
-    public int Repeat
-    {
-        get { return intRepeat;}
-        set { intRepeat = value; }
-    }
-
+   
 
     public bool SaveNewTask()
     {
@@ -58,13 +53,13 @@ class Task
             {
                 connection.Open();
 
-                datetimetTask="11";
-                stringTask="test";
-                boolStatus=false;
-                intCategoria=1;
-                intRepeat=1;
+                //datetimetTask="11";
+                //stringTask="test";
+                //boolStatus=false;
+                //intCategoria=1;
+                //intRepeat=1;
 
-                string sqlExpression = $"INSERT INTO Tasks (dtTask,strTask,blStatus,Categoria,Repeat) VALUES ('{datetimetTask}', '{stringTask}', {boolStatus}, {intCategoria} , {intRepeat})";
+                string sqlExpression = $"INSERT INTO Tasks (dtTask,strTask,blStatus,Categoria) VALUES ('{datetimetTask}', '{stringTask}', {boolStatus}, '{strCategoria}')";
 
 
                 SQLiteCommand command = new SQLiteCommand(sqlExpression, connection);
