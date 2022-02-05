@@ -6,10 +6,8 @@
         xmlns:local="clr-namespace:FirTree"
         mc:Ignorable="d"
         Title="EditMessageDatabase" Height="450" Width="800">
+
     <Grid>
-        <Label>Редактирование задач </Label>
-
-       
-
+        <DataGrid x:Name="dataGrid" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
     </Grid>
 </Window>

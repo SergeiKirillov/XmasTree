@@ -82,7 +82,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Class1.cs" />
     <Compile Include="DB.cs" />
     <Compile Include="EditMessageDatabase.xaml.cs">
       <DependentUpon>EditMessageDatabase.xaml</DependentUpon>
