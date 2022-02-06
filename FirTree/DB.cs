@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SQLite;
+using System.Data.Entity;
 
-
-class Task
+public  class Task
 {
     //CREATE TABLE "Task" ("id"	INTEGER NOT NULL UNIQUE, "dtTask" TEXT NOT NULL, "strTask" TEXT NOT NULL, "blStatus" BLOB, "Categoria" INTEGER NOT NULL,"Repeat" INTEGER, PRIMARY KEY("id" AUTOINCREMENT))
     //TODO https://metanit.com/sharp/adonetcore/4.2.php
     private string datetimetTask;
     private string stringTask;
-    private bool boolStatus;
+    private int Status;
     private string strCategoria;
     
 
@@ -31,10 +31,10 @@ class Task
         set { stringTask = value; }
     }
 
-    public bool blStatus
+    public int intStatus
     {
-        get { return boolStatus; }
-        set { boolStatus = value; }
+        get { return Status; }
+        set { Status = value; }
     }
 
     public string Categoria
@@ -59,7 +59,7 @@ class Task
                 //intCategoria=1;
                 //intRepeat=1;
 
-                string sqlExpression = $"INSERT INTO Tasks (dtTask,strTask,blStatus,Categoria) VALUES ('{datetimetTask}', '{stringTask}', {boolStatus}, '{strCategoria}')";
+                string sqlExpression = $"INSERT INTO Tasks (dtTask,strTask,blStatus,Categoria) VALUES ('{datetimetTask}', '{stringTask}', {intStatus}, '{strCategoria}')";
 
 
                 SQLiteCommand command = new SQLiteCommand(sqlExpression, connection);
@@ -89,4 +89,9 @@ class Task
         }
     }
 
+}
+
+public class DefultConnection: DbContext
+{
+    public DbSet<Task> Tasks { get; set; }
 }

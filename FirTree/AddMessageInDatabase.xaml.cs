@@ -113,7 +113,7 @@ namespace FirTree
                     }
 
                     dbNewTask.strTask = txtZadacha.Text;
-                    dbNewTask.blStatus = false;
+                    dbNewTask.intStatus = 0;
                     dbNewTask.Categoria = cmbCategoria.Text;
                     if (dbNewTask.SaveNewTask())
                     {

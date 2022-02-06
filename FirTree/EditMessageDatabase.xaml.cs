@@ -24,6 +24,7 @@ namespace FirTree
     {
         public int id { get; set; }
         public string dtTask { get; set;}
+        public int blStatus { get; set; }
         public string strTask { get; set;}
         public string Categoria { get; set; }
     }
@@ -46,11 +47,17 @@ namespace FirTree
 
         private void My_Loaded(object sender, RoutedEventArgs e)
         {
-            ZadachContext context = new ZadachContext();
+            //ZadachContext context = new ZadachContext();
+            ////context.Zadachas.OrderBy(c => c.dtTask).Load();
+            //context.Zadachas.Load();
+            //this.dataGrid.ItemsSource = context.Zadachas.Local;
 
-            //context.Zadachas.OrderBy(c => c.dtTask).Load();
-            context.Zadachas.Load();
-            this.dataGrid.ItemsSource = context.Zadachas.Local;
+
+            DefultConnection context = new DefultConnection();
+            context.Tasks.Load();
+            this.dataGrid.ItemsSource = context.Tasks.Local;
+
+            
         }
     }
 }

@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.SQLite;
 
 
 namespace FirTree
@@ -42,8 +43,43 @@ namespace FirTree
             MyCalendar.DisplayDate = DateTime.Now;
             MyCalendar.SelectedDate = DateTime.Now;
 
+            ReadDB();
+
 
         }
+
+        #region Заполняем текстБох значениями заданий на Месяц от текущего дня
+        private void ReadDB()
+        {
+            string sqlQuery = "Select * From Tasks";
+
+            using (var connection = new SQLiteConnection("Data Source = TaskDB.db"))
+            {
+                connection.Open();
+
+                SQLiteCommand command = new SQLiteCommand(sqlQuery, connection);
+                using(SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.HasRows) //Есть ли данные
+                    {
+                        string Message= null;
+
+                        while (reader.Read())
+                        {
+                           
+                            Message = Message + reader.GetValue(1).ToString() + "---" + reader.GetValue(2).ToString()+ "\r\n";
+
+                            SelectedDataTextBox.Text = Message;
+                        }
+                    }
+                }
+
+            }
+
+
+        }
+
+        #endregion
 
         private void Window_Activated(object sender, EventArgs e)
         {
@@ -51,6 +87,7 @@ namespace FirTree
 
             addSelectedDates();
             ShoveToBackground();
+
 
         }
 
